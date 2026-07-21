@@ -6,8 +6,9 @@ This is an overlay-style theme layer: it ships no dependencies and assumes `@nux
 
 ## What it provides
 
-- `app/assets/css/palette.css` — the full Flexoki palette as Tailwind v4 `@theme` tokens (replaces the default Tailwind colors)
-- `app/assets/css/nuxt-ui.css` — maps Flexoki tokens to Nuxt UI semantic variables (`--ui-bg`, `--ui-text`, `--ui-primary`, ...) with `light-dark()` for automatic light/dark switching. Registered automatically via this layer's `nuxt.config.ts`
+- `app/assets/css/palette.css` — the full Flexoki palette as Tailwind v4 `@theme` tokens. Flexoki's 8 hues replace the matching Tailwind scales, and **every other Tailwind color scale is aliased to its nearest Flexoki color** (`neutral`/`gray`/`slate`/`zinc`/`stone` → `flexoki-base`, `amber` → `orange`, `teal` → `cyan`, ...), so any color utility stays inside the Flexoki gamut and nothing falls back to `currentColor`
+- `app/app.config.ts` — declares `ui.colors` (`primary: 'orange'`, `neutral: 'flexoki-base'`) so Nuxt UI resolves its color chain (`--ui-color-*`) from the Flexoki palette. Override any of these in your own `app.config.ts`
+- `app/assets/css/nuxt-ui.css` — fine-tunes the Nuxt UI semantic variables (`--ui-bg`, `--ui-text`, `--ui-border`, ...) to Flexoki's official light/dark semantics with `light-dark()`. Registered automatically via this layer's `nuxt.config.ts`
 
 ## Usage
 
@@ -15,7 +16,7 @@ This is an overlay-style theme layer: it ships no dependencies and assumes `@nux
 
 ```ts
 export default defineNuxtConfig({
-  extends: ['github:ryuhei373/nuxt-layer-flexoki#v0.1.0'],
+  extends: ['github:ryuhei373/nuxt-layer-flexoki#v0.2.0'],
   modules: ['@nuxt/ui'],
 });
 ```

@@ -1,31 +1,64 @@
 /**
- * Flexoki palette → Nuxt UI semantic variables mapping
- * light-dark() switches by color-scheme (@nuxt/ui sets it via color mode)
+ * Flexoki → Nuxt UI semantic variables mapping.
+ * Shade choices follow Flexoki's official light/dark semantics.
+ * The neutral scale is resolved via ui.colors.neutral = 'flexoki-base'
+ * (declared in this layer's app.config.ts), so most values reference the
+ * official --ui-color-* chain. Flexoki's 150/850 shades are outside
+ * Tailwind's standard stops, so those reference flexoki-base directly.
  */
 
 :root {
-  /* Nuxt UI variables - must be in :root to override @nuxt/ui defaults */
-  --ui-bg: light-dark(var(--color-light-bg), var(--color-dark-bg));
-  --ui-bg-muted: light-dark(var(--color-light-bg-2), var(--color-dark-bg-2));
-  --ui-bg-elevated: light-dark(var(--color-light-ui), var(--color-dark-ui));
-  --ui-bg-accented: light-dark(var(--color-light-ui-2), var(--color-dark-ui-2));
-  --ui-bg-inverted: light-dark(var(--color-dark-bg), var(--color-light-bg));
+  --ui-bg: light-dark(var(--color-paper), var(--color-black));
+  --ui-bg-muted: light-dark(
+    var(--ui-color-neutral-50),
+    var(--ui-color-neutral-950)
+  );
+  --ui-bg-elevated: light-dark(
+    var(--ui-color-neutral-100),
+    var(--ui-color-neutral-900)
+  );
+  --ui-bg-accented: light-dark(
+    var(--color-flexoki-base-150),
+    var(--color-flexoki-base-850)
+  );
+  --ui-bg-inverted: light-dark(var(--color-black), var(--color-paper));
 
-  --ui-text: light-dark(var(--color-light-tx), var(--color-dark-tx));
+  --ui-text: light-dark(var(--color-black), var(--ui-color-neutral-200));
   --ui-text-highlighted: light-dark(var(--color-black), var(--color-paper));
-  --ui-text-toned: light-dark(var(--color-light-tx-2), var(--color-dark-tx-2));
-  --ui-text-muted: light-dark(var(--color-light-tx-2), var(--color-dark-tx-2));
-  --ui-text-dimmed: light-dark(var(--color-light-tx-3), var(--color-dark-tx-3));
+  --ui-text-toned: light-dark(
+    var(--ui-color-neutral-600),
+    var(--ui-color-neutral-500)
+  );
+  --ui-text-muted: light-dark(
+    var(--ui-color-neutral-600),
+    var(--ui-color-neutral-500)
+  );
+  --ui-text-dimmed: light-dark(
+    var(--ui-color-neutral-300),
+    var(--ui-color-neutral-700)
+  );
   --ui-text-inverted: light-dark(var(--color-paper), var(--color-black));
 
-  --ui-border: light-dark(var(--color-light-ui-2), var(--color-dark-ui-2));
-  --ui-border-muted: light-dark(var(--color-light-ui), var(--color-dark-ui));
-  --ui-border-accented: light-dark(
-    var(--color-light-ui-3),
-    var(--color-dark-ui-3)
+  --ui-border: light-dark(
+    var(--color-flexoki-base-150),
+    var(--color-flexoki-base-850)
   );
-  --ui-border-inverted: light-dark(var(--color-dark-bg), var(--color-light-bg));
+  --ui-border-muted: light-dark(
+    var(--ui-color-neutral-100),
+    var(--ui-color-neutral-900)
+  );
+  --ui-border-accented: light-dark(
+    var(--ui-color-neutral-200),
+    var(--ui-color-neutral-800)
+  );
+  --ui-border-inverted: light-dark(var(--color-black), var(--color-paper));
 
-  --ui-primary: light-dark(var(--color-light-or), var(--color-dark-or));
-  --ui-secondary: light-dark(var(--color-light-or-2), var(--color-dark-or-2));
+  --ui-primary: light-dark(
+    var(--ui-color-primary-600),
+    var(--ui-color-primary-400)
+  );
+  --ui-secondary: light-dark(
+    var(--ui-color-secondary-400),
+    var(--ui-color-secondary-600)
+  );
 }

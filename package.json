@@ -1,6 +1,6 @@
 {
   "name": "nuxt-layer-flexoki",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Flexoki color theme layer for Nuxt UI projects",
   "license": "MIT",
   "type": "module",
