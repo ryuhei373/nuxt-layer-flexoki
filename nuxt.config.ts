@@ -12,6 +12,6 @@ export default defineNuxtConfig({
   css: [
     // palette.css（@theme）はここに置いても Tailwind パイプラインを通らないため、
     // 利用側のルート CSS で @import してもらう。プレーン CSS のみ登録する
-    join(currentDir, './nuxt-ui.css'),
+    join(currentDir, './css/nuxt-ui.css'),
   ],
 });
